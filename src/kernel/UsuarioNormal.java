@@ -43,4 +43,42 @@ public class UsuarioNormal extends Usuario {
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
     }
+
+    // Método: Obtener promedio de reputación como vendedor
+    public double getPromedioReputacionVendedor() {
+        if (reseñasComoVendedor.isEmpty()) return 0;
+        return reseñasComoVendedor.stream()
+                .mapToDouble(Reseña::getCalificacion)
+                .average()
+                .orElse(0);
+    }
+
+    // Método: Obtener promedio de reputación como cliente
+    public double getPromedioReputacionCliente() {
+        if (reseñasComoCliente.isEmpty()) return 0;
+        return reseñasComoCliente.stream()
+                .mapToDouble(Reseña::getCalificacion)
+                .average()
+                .orElse(0);
+    }
+
+    // Método: Agregar reseña como vendedor
+    public void agregarReseñaVendedor(Reseña reseña) {
+        reseñasComoVendedor.add(reseña);
+    }
+
+    // Método: Agregar reseña como cliente
+    public void agregarReseñaCliente(Reseña reseña) {
+        reseñasComoCliente.add(reseña);
+    }
+
+    // Método: Agregar transacción
+    public void agregarTransaccion(Transaccion transaccion) {
+        transacciones.add(transaccion);
+    }
+
+    // Método: Agregar publicación
+    public void agregarPublicacion(Publicacion publicacion) {
+        publicaciones.add(publicacion);
+    }
 }
