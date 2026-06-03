@@ -1,23 +1,17 @@
 package kernel;
 
-import interfaces.Reportable;
+import java.util.ArrayList;
 
-public class UsuarioAdmin extends Usuario implements Reportable {
+public class UsuarioAdmin extends Usuario{
+	private String contraseña=super.contraseña;
+	ArrayList<Disputa> disputas;
+	ValidadorFraude Validador;
+	public String getContraseña() {
+		return contraseña;
+	}
 
-    public UsuarioAdmin(int id, String nombre, String correo) {
-        super(id, nombre, correo);
-    }
-
-    public void mostrarDatos() {
-
-        System.out.println("Administrador");
-        System.out.println("ID: " + id);
-        System.out.println("Nombre: " + nombre);
-    }
-
-    @Override
-    public void generarReporte() {
-
-        System.out.println("Generando reporte...");
-    }
+	public void setContraseña(String contraseña) {
+		this.contraseña = contraseña;
+	}
+	
 }
