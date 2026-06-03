@@ -2,38 +2,53 @@ package kernel;
 
 import interfaces.Calificable;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-public abstract class Usuario implements Calificable, Serializable {
+public class Usuario implements  Serializable {
 
+    private static int contadorId = 1000;  // ID autogenerativo
     protected int id;
     protected String nombre;
+    protected String contraseña;
     protected String correo;
-    protected double reputacion;
-
-    public Usuario(int id, String nombre, String correo) {
-        this.id = id;
+    
+    public Usuario(String nombre, String contraseña, String correo) {
+        this.id = generarId();
         this.nombre = nombre;
+        this.contraseña = contraseña;
         this.correo = correo;
-        this.reputacion = 5.0;
     }
+
+    // ID autogenerativo
+    private static int generarId() {
+        return contadorId++;
+    }
+
+    // Getters
     public int getId() {
         return id;
     }
+
     public String getNombre() {
         return nombre;
     }
+
     public String getCorreo() {
         return correo;
     }
-    public double getReputacion() {
-        return reputacion;
+
+
+    // Setters
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
-    public void setReputacion(double reputacion) {
-        this.reputacion = reputacion;
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
-    public abstract void mostrarDatos();
-    @Override
-    public void calificar(double nota) {
-        reputacion = (reputacion + nota) / 2;
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 }
