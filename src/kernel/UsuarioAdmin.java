@@ -2,16 +2,28 @@ package kernel;
 
 import java.util.ArrayList;
 
-public class UsuarioAdmin extends Usuario{
-	private String contraseña=super.contraseña;
-	ArrayList<Disputa> disputas;
-	ValidadorFraude Validador;
-	public String getContraseña() {
-		return contraseña;
-	}
+public class UsuarioAdmin extends Usuario {
+    
+    protected ArrayList<Disputa> disputas;
+    protected ValidadorFraude validador;
 
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
-	}
-	
+    public UsuarioAdmin(String nombre, String contraseña, String correo) {
+        super(nombre, contraseña, correo);
+        this.disputas = new ArrayList<>();
+        this.validador = new ValidadorFraude();
+    }
+
+    // Getters
+    public ArrayList<Disputa> getDisputas() {
+        return disputas;
+    }
+
+    public ValidadorFraude getValidador() {
+        return validador;
+    }
+
+    // Admin puede resolver disputas
+    public void resolverDisputa(Disputa disputa) {
+        // Lógica de resolución
+    }
 }
