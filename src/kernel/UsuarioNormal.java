@@ -1,17 +1,19 @@
 package kernel;
 
-public class UsuarioNormal extends Usuario {
+import java.util.ArrayList;
 
-    public UsuarioNormal(int id, String nombre, String correo) {
-        super(id, nombre, correo);
-    }
-
-    public void mostrarDatos() {
-
-        System.out.println("Usuario Normal");
-        System.out.println("ID: " + id);
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Correo: " + correo);
-        System.out.println("Reputación: " + reputacion);
-    }
+public class UsuarioNormal extends Usuario{
+	String ubicacion;
+	private String contraseña=super.contraseña;
+	ArrayList<Publicacion> publicaciones;
+	ArrayList<Reseña> reseñasComoVendedor;
+	ArrayList<Reseña> reseñasComoCliente;
+	ArrayList<Transaccion> transacciones;
+	public String getContraseña() {
+		return contraseña;
+	}
+	
+	public void setContraseña(String contraseña) {
+		this.contraseña = contraseña;
+	}
 }
