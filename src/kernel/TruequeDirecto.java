@@ -1,19 +1,19 @@
 package kernel;
 
-public class TruequeDirecto implements CompraYVenta {
-	Objeto objetoAIntercambiar;
-	Oferta oferta;
-	Publicacion publicacion;
-	@Override
-	public void comprar() {
-		// TODO Auto-generated method stub
+public class TruequeDirecto extends Publicacion {
 
-	}
+    public TruequeDirecto(int id,
+                          String descripcion,
+                          String categoria,
+                          String ubicacion) {
 
-	@Override
-	public void vender() {
-		// TODO Auto-generated method stub
+        super(id, descripcion, categoria, ubicacion);
+    }
 
-	}
+    @Override
+    public void mostrarPublicacion() {
 
+        System.out.println("TRUEQUE");
+        System.out.println(descripcion);
+    }
 }
