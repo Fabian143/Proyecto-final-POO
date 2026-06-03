@@ -1,31 +1,22 @@
 package kernel;
 
-import java.time.LocalDate;
+import java.util.ArrayList;
 
-public class SubastaTiempoLimitado extends Publicacion {
+public class SubastaTiempoLimitado implements CompraYVenta {
+	TiempoGeolocalizado tiempoSubastaInicial=new TiempoGeolocalizado();
+	TiempoGeolocalizado tiempoSubastafinal=new TiempoGeolocalizado();
+	ArrayList<Puja> pujas;
+	Publicacion publicacion;
+    
+	@Override
+	public void comprar() {
+		// TODO Auto-generated method stub
+	}
 
-    private double pujaMinima;
-    private LocalDate fechaCierre;
+	@Override
+	public void vender() {
+		// TODO Auto-generated method stub
 
-    public SubastaTiempoLimitado(
-            int id,
-            String descripcion,
-            String categoria,
-            String ubicacion,
-            double pujaMinima,
-            LocalDate fechaCierre) {
+	}
 
-        super(id, descripcion, categoria, ubicacion);
-
-        this.pujaMinima = pujaMinima;
-        this.fechaCierre = fechaCierre;
-    }
-
-    @Override
-    public void mostrarPublicacion() {
-
-        System.out.println("SUBASTA");
-        System.out.println(descripcion);
-        System.out.println("Puja mínima: " + pujaMinima);
-    }
 }
