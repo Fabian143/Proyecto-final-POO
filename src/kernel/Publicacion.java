@@ -4,21 +4,23 @@ import java.io.Serializable;
 
 public class Publicacion implements Serializable {
     
-    private static int contadorId = 2000;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private static int contadorId = 2000;
     protected int id;
-    protected EstadoTransaccion estado;
+    protected EstadosT estado;
     protected TiempoGeolocalizado fecha;
     protected UsuarioNormal propietario;
     protected Objeto objeto;
-    protected tipoP tipo;
 
-    public Publicacion(UsuarioNormal propietario, Objeto objeto, tipoP tipo) {
+    public Publicacion(UsuarioNormal propietario, Objeto objeto,EstadosT estado,TiempoGeolocalizado fecha) {
         this.id = generarId();
         this.propietario = propietario;
         this.objeto = objeto;
-        this.tipo = tipo;
-        this.fecha = new TiempoGeolocalizado();
-        this.estado = new EstadoTransaccion();
+        this.fecha = fecha;
+        this.estado = estado;
     }
 
     private static int generarId() {
@@ -30,7 +32,7 @@ public class Publicacion implements Serializable {
         return id;
     }
 
-    public EstadoTransaccion getEstado() {
+    public EstadosT getEstado() {
         return estado;
     }
 
@@ -46,12 +48,9 @@ public class Publicacion implements Serializable {
         return objeto;
     }
 
-    public tipoP getTipo() {
-        return tipo;
-    }
 
     // Setters
-    public void setEstado(EstadoTransaccion estado) {
+    public void setEstado(EstadosT estado) {
         this.estado = estado;
     }
 }

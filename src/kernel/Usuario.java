@@ -4,7 +4,11 @@ import java.io.Serializable;
 
 public class Usuario implements Serializable {
 
-    private static int contadorId = 1000;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private static int contadorId = 1000;
     protected int id;
     protected String nombre;
     protected String contraseña;

@@ -4,7 +4,11 @@ import java.util.ArrayList;
 
 public class UsuarioAdmin extends Usuario {
     
-    protected ArrayList<Disputa> disputas;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	protected ArrayList<Disputa> disputas;
     protected ValidadorFraude validador;
 
     public UsuarioAdmin(String nombre, String contraseña, String correo) {

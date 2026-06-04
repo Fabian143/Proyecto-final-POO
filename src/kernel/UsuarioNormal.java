@@ -4,7 +4,11 @@ import java.util.ArrayList;
 
 public class UsuarioNormal extends Usuario {
     
-    protected TiempoGeolocalizado ubicacion;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	protected TiempoGeolocalizado ubicacion;
     protected ArrayList<Publicacion> publicaciones;
     protected ArrayList<Reseña> reseñasComoVendedor;
     protected ArrayList<Reseña> reseñasComoCliente;

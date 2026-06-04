@@ -4,7 +4,11 @@ import java.io.Serializable;
 
 public class TiempoGeolocalizado implements Serializable {
     
-    private long timestamp;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private long timestamp;
     private String ubicacionAproximada;  // Zona/Barrio/Ciudad
     private double latitudAproximada;    // Coordenadas aproximadas
     private double longitudAproximada;

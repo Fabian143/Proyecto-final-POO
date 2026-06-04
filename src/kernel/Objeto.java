@@ -5,7 +5,11 @@ import java.util.ArrayList;
 
 public class Objeto implements Serializable {
     
-    private static int contadorId = 6000;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private static int contadorId = 6000;
     protected int id;
     private String descripcion;
     private String condiciones;

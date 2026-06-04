@@ -4,7 +4,11 @@ import java.io.Serializable;
 
 public class Reseña implements Serializable {
     
-    private static int contadorId = 5000;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private static int contadorId = 5000;
     protected int id;
     protected UsuarioNormal autor;
     protected double calificacion;
