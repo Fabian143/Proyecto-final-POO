@@ -1,25 +1,10 @@
 package kernel;
 
-import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.ArrayList;
 
-public class Transaccion implements Serializable {
-
-    private Usuario comprador;
-    private Usuario vendedor;
-
-    private LocalDate fecha;
-
-    public Transaccion(
-            Usuario comprador,
-            Usuario vendedor) {
-
-        this.comprador = comprador;
-        this.vendedor = vendedor;
-        this.fecha = LocalDate.now();
-    }
-
-    public LocalDate getFecha() {
-        return fecha;
-    }
+public class Transaccion {
+	ArrayList <UsuarioNormal> participantes;
+	TiempoGeolocalizado fecha=new TiempoGeolocalizado();
+	EstadosT estadoActual;
+	Objeto objeto;
 }
