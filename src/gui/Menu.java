@@ -35,6 +35,18 @@ public class Menu extends JPanel {
         JButton btnPublicaciones =
                 new JButton(
                         "Publicaciones");
+        btnPublicaciones.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        		ventana.setContentPane(
+                        new CrearPublicacion(
+                                ventana,
+                                usuario));
+
+                ventana.revalidate();
+                ventana.repaint();
+        	}
+        });
 
         btnPublicaciones.setBounds(
                 100,
