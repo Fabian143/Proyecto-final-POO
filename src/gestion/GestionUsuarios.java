@@ -3,7 +3,7 @@ package gestion;
 import java.util.ArrayList;
 
 import kernel.UsuarioNormal;
-import gestion.ArchivoUsuarios;
+import persistencia.ArchivoUsuarios;
 
 public class GestionUsuarios {
 
