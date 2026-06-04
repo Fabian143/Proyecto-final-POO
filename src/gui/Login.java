@@ -71,6 +71,9 @@ public class Login extends JPanel {
 
                 if (usuario != null) {
 
+                    Sistema.usuarioActual =
+                            usuario;
+
                     JOptionPane.showMessageDialog(
                             null,
                             "Bienvenido " +
