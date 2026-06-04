@@ -82,12 +82,47 @@ public class MisPublicaciones extends JPanel {
                 new JButton("Volver");
 
         btnVolver.setBounds(
-                500,
+                641,
                 450,
                 120,
                 35);
 
         add(btnVolver);
+        
+        JButton btnEditar = new JButton("Editar");
+        btnEditar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        		int fila =
+                        tablaPublicaciones
+                        .getSelectedRow();
+
+                if(fila == -1) {
+
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Seleccione una publicación");
+
+                    return;
+                }
+
+                Publicacion publicacion =
+                        Sistema.usuarioActual
+                        .getPublicaciones()
+                        .get(fila);
+
+                ventana.setContentPane(
+                        new EditarPublicacion(
+                                ventana,
+                                publicacion));
+
+                ventana.revalidate();
+                ventana.repaint();
+
+        	}
+        });
+        btnEditar.setBounds(497, 450, 120, 35);
+        add(btnEditar);
 
         //----------------------------------
         // CREAR
