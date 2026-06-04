@@ -1,39 +1,55 @@
 package kernel;
 
-public class Mensaje {
-	private String contenido;
-	private TiempoGeolocalizado fecha;
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Conversacion implements  Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private UsuarioNormal remitente;
+	private UsuarioNormal destinatario;
 	
-	public Mensaje(String contenido, TiempoGeolocalizado fecha,UsuarioNormal remitente) {
-		this.remitente=remitente;
-		this.contenido = contenido;
-		this.fecha = fecha;
-	}
 
-	public String getContenido() {
-		return contenido;
+	private ArrayList<Mensaje> mensajes;
+	
+	public Conversacion(UsuarioNormal remitente, UsuarioNormal destinatario) {
+		this.remitente = remitente;
+		this.destinatario = destinatario;
+		mensajes = new ArrayList<>();
 	}
-
-	public void setContenido(String contenido) {
-		this.contenido = contenido;
+    
+	void añadirMensaje(Mensaje m) {
+		mensajes.add(m);
 	}
-
-	public TiempoGeolocalizado getFecha() {
-		return fecha;
-	}
-
-	public void setFecha(TiempoGeolocalizado fecha) {
-		this.fecha = fecha;
-	}
-
-	public UsuarioNormal getRemitente() {
+   
+    public int cantidadMensajes() {
+        return mensajes.size();
+    }
+public UsuarioNormal getRemitente() {
 		return remitente;
 	}
 
 	public void setRemitente(UsuarioNormal remitente) {
 		this.remitente = remitente;
 	}
+
+	public UsuarioNormal getDestinatario() {
+		return destinatario;
+	}
+
+	public void setDestinatario(UsuarioNormal destinatario) {
+		this.destinatario = destinatario;
+	} 
+	public ArrayList<Mensaje> getMensajes() {
+		return mensajes;
+	}
+
+	public void setMensajes(ArrayList<Mensaje> mensajes) {
+		this.mensajes = mensajes;
+	}
 	
 }
+
 
