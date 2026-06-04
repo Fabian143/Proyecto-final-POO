@@ -3,6 +3,7 @@ package gestion;
 import java.util.ArrayList;
 
 import kernel.UsuarioNormal;
+import gestion.ArchivoUsuarios;
 
 public class GestionUsuarios {
 
@@ -10,13 +11,18 @@ public class GestionUsuarios {
 
     public GestionUsuarios() {
 
-        usuarios = new ArrayList<UsuarioNormal>();
-    }
+    usuarios =
+            ArchivoUsuarios.cargar();
+}
 
-    public void registrar(UsuarioNormal usuario) {
+    public void registrar(
+        UsuarioNormal usuario) {
 
-        usuarios.add(usuario);
-    }
+    usuarios.add(usuario);
+
+    ArchivoUsuarios.guardar(
+            usuarios);
+}
 
     public boolean existeCorreo(String correo) {
 
@@ -43,6 +49,12 @@ public class GestionUsuarios {
                 return u;
             }
         }
+
+        public ArrayList<UsuarioNormal>
+        getUsuarios() {
+
+    return usuarios;
+}
 
         return null;
     }
