@@ -1,4 +1,4 @@
-package logica;
+package gestion;
 
 public class Sistema {
 
