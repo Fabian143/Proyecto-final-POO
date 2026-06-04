@@ -1,38 +1,21 @@
 package kernel;
 
-public class Mensaje {
-	private String contenido;
-	private TiempoGeolocalizado fecha;
-	private UsuarioNormal remitente;
-	
-	public Mensaje(String contenido, TiempoGeolocalizado fecha,UsuarioNormal remitente) {
-		this.remitente=remitente;
-		this.contenido = contenido;
-		this.fecha = fecha;
-	}
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
-	public String getContenido() {
-		return contenido;
-	}
+public class Mensaje implements Serializable {
 
-	public void setContenido(String contenido) {
-		this.contenido = contenido;
-	}
+    private Usuario emisor;
+    private String texto;
 
-	public TiempoGeolocalizado getFecha() {
-		return fecha;
-	}
+    private LocalDateTime fecha;
 
-	public void setFecha(TiempoGeolocalizado fecha) {
-		this.fecha = fecha;
-	}
+    public Mensaje(
+            Usuario emisor,
+            String texto) {
 
-	public UsuarioNormal getRemitente() {
-		return remitente;
-	}
-
-	public void setRemitente(UsuarioNormal remitente) {
-		this.remitente = remitente;
-	}
-	
+        this.emisor = emisor;
+        this.texto = texto;
+        this.fecha = LocalDateTime.now();
+    }
 }
