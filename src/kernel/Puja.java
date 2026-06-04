@@ -1,13 +1,13 @@
 package kernel;
 
-public class Puja extends Oferta {
-
+public class Puja{
+    private UsuarioNormal usuarioqpuja;
     private double valor;
-
-    public Puja(Usuario usuario,
-                double valor) {
-
-        super(usuario);
+    private TiempoGeolocalizado t;
+    
+    public Puja(UsuarioNormal usuario,double valor, TiempoGeolocalizado t) {
+        usuarioqpuja=usuario;
+        this.t=t;
         this.valor = valor;
     }
 
