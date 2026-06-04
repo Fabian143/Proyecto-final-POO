@@ -11,24 +11,25 @@ public class GestionUsuarios {
 
     public GestionUsuarios() {
 
-    usuarios =
-            ArchivoUsuarios.cargar();
-}
+        usuarios = ArchivoUsuarios.cargar();
+    }
 
     public void registrar(
-        UsuarioNormal usuario) {
+            UsuarioNormal usuario) {
 
-    usuarios.add(usuario);
+        usuarios.add(usuario);
 
-    ArchivoUsuarios.guardar(
-            usuarios);
-}
+        ArchivoUsuarios.guardar(
+                usuarios);
+    }
 
-    public boolean existeCorreo(String correo) {
+    public boolean existeCorreo(
+            String correo) {
 
         for (UsuarioNormal u : usuarios) {
 
-            if (u.getCorreo().equalsIgnoreCase(correo)) {
+            if (u.getCorreo()
+                    .equalsIgnoreCase(correo)) {
 
                 return true;
             }
@@ -43,19 +44,22 @@ public class GestionUsuarios {
 
         for (UsuarioNormal u : usuarios) {
 
-            if (u.getCorreo().equalsIgnoreCase(correo)
-                    && u.verificarContraseña(contraseña)) {
+            if (u.getCorreo()
+                    .equalsIgnoreCase(correo)
+                    &&
+                    u.verificarContraseña(
+                            contraseña)) {
 
                 return u;
             }
         }
 
-        public ArrayList<UsuarioNormal>
-        getUsuarios() {
-
-    return usuarios;
-}
-
         return null;
+    }
+
+    public ArrayList<UsuarioNormal>
+    getUsuarios() {
+
+        return usuarios;
     }
 }
