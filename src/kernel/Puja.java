@@ -6,22 +6,22 @@ public class Puja implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private UsuarioNormal usuarioqpuja;
+    private UsuarioNormal pujador;
     private double valor;
     private TiempoGeolocalizado t;
 
     public Puja(UsuarioNormal usuario, double valor, TiempoGeolocalizado t) {
-        this.usuarioqpuja = usuario;
+        this.pujador = usuario;
         this.valor = valor;
         this.t = t;
     }
 
     public UsuarioNormal getUsuarioqpuja() {
-        return usuarioqpuja;
+        return pujador;
     }
 
     public void setUsuarioqpuja(UsuarioNormal usuarioqpuja) {
-        this.usuarioqpuja = usuarioqpuja;
+        this.pujador = usuarioqpuja;
     }
 
     public double getValor() {

@@ -10,12 +10,12 @@ public class Publicacion implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private static int contadorId = 2000;
     protected int id;
-    protected EstadosT estado;
+    protected EstadosP estado;
     protected TiempoGeolocalizado fecha;
     protected UsuarioNormal propietario;
     protected Objeto objeto;
 
-    public Publicacion(UsuarioNormal propietario, Objeto objeto,EstadosT estado,TiempoGeolocalizado fecha) {
+    public Publicacion(UsuarioNormal propietario, Objeto objeto,EstadosP estado,TiempoGeolocalizado fecha) {
         this.id = generarId();
         this.propietario = propietario;
         this.objeto = objeto;
@@ -32,7 +32,7 @@ public class Publicacion implements Serializable {
         return id;
     }
 
-    public EstadosT getEstado() {
+    public EstadosP getEstado() {
         return estado;
     }
 
@@ -50,7 +50,7 @@ public class Publicacion implements Serializable {
 
 
     // Setters
-    public void setEstado(EstadosT estado) {
+    public void setEstado(EstadosP estado) {
         this.estado = estado;
     }
 }

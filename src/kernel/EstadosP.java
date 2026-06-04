@@ -1,6 +1,6 @@
 package kernel;
 
-public enum EstadosT {
+public enum EstadosP {
 	EN_NEGOCIACION,
 	RESERVADO,
 	FINALIZADO,

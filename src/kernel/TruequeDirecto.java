@@ -11,7 +11,7 @@ public class TruequeDirecto extends Publicacion {
 	private ArrayList<Oferta> ofertas;
 
     public TruequeDirecto(UsuarioNormal propietario,Objeto objeto,TiempoGeolocalizado fecha) {
-        super(propietario,objeto,EstadosT.EN_NEGOCIACION,fecha);
+        super(propietario,objeto,EstadosP.EN_NEGOCIACION,fecha);
         this.ofertas = new ArrayList<>();
     }
 
@@ -45,7 +45,7 @@ public class TruequeDirecto extends Publicacion {
         oferta.aceptarOferta();
         rechazarOfertas(oferta);
 
-        setEstado(EstadosT.RESERVADO);
+        setEstado(EstadosP.RESERVADO);
     }
 
     public void rechazarOferta(Oferta oferta)
