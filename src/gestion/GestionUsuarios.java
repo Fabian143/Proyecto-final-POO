@@ -62,4 +62,10 @@ public class GestionUsuarios {
 
         return usuarios;
     }
+
+    public void guardarTodo() {
+
+    ArchivoUsuarios.guardar(
+            usuarios);
+}
 }
