@@ -38,8 +38,8 @@ public class Menu extends JPanel {
         btnPublicaciones.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		
-        		ventana.setContentPane(
-                        new CrearPublicacion(
+                  ventana.setContentPane(
+                        new MisPublicaciones(
                                 ventana,
                                 usuario));
 
