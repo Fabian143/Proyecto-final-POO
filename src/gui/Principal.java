@@ -8,8 +8,8 @@ public class Principal extends JFrame {
 
     public Principal() {
 
-        setTitle("Trueques");
-        setSize(500,332);
+        setTitle("Sistema de Trueques");
+        setSize(1000, 700);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
