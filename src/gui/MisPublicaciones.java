@@ -72,7 +72,7 @@ public class MisPublicaciones extends JPanel {
                 new JButton("Eliminar");
 
         btnEliminar.setBounds(
-                350,
+                494,
                 450,
                 120,
                 35);
@@ -83,7 +83,7 @@ public class MisPublicaciones extends JPanel {
                 new JButton("Volver");
 
         btnVolver.setBounds(
-                641,
+                780,
                 450,
                 120,
                 35);
@@ -122,8 +122,54 @@ public class MisPublicaciones extends JPanel {
 
         	}
         });
-        btnEditar.setBounds(497, 450, 120, 35);
+        btnEditar.setBounds(350, 450, 120, 35);
         add(btnEditar);
+        
+        JButton btnOfertas = new JButton("Ver ofertas");
+        btnOfertas.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        		 int fila =
+        	                tablaPublicaciones
+        	                .getSelectedRow();
+
+        	        if(fila == -1) {
+
+        	            JOptionPane.showMessageDialog(
+        	                    null,
+        	                    "Seleccione una publicación");
+
+        	            return;
+        	        }
+
+        	        Publicacion p =
+        	                Sistema.usuarioActual
+        	                .getPublicaciones()
+        	                .get(fila);
+
+        	        if(!(p instanceof TruequeDirecto)) {
+
+        	            JOptionPane.showMessageDialog(
+        	                    null,
+        	                    "La publicación no es un trueque");
+
+        	            return;
+        	        }
+
+        	        TruequeDirecto trueque =
+        	                (TruequeDirecto) p;
+
+        	        ventana.setContentPane(
+        	                new VerOfertas(
+        	                        ventana,
+        	                        trueque));
+
+        	        ventana.revalidate();
+        	        ventana.repaint();
+        	}
+        });
+        btnOfertas.setBounds(640, 450, 120, 35);
+        add(btnOfertas);
 
         //----------------------------------
         // CREAR
