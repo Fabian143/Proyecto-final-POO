@@ -1,11 +1,13 @@
 package persistencia;
 
-import modelo.Usuario;
-import modelo.Publicacion;
-import modelo.Transaccion;
+
 
 import java.io.*;
 import java.util.ArrayList;
+
+import kernel.Publicacion;
+import kernel.Transaccion;
+import kernel.Usuario;
 
 public class GestorArchivos {
 
