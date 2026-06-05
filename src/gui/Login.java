@@ -70,8 +70,8 @@ public class Login extends JPanel {
                                         contraseña);
 
                 if (usuario != null) {
-
-                    Sistema.usuarioActual =
+                	
+                	Sistema.usuarioActual =
                             usuario;
 
                     JOptionPane.showMessageDialog(
