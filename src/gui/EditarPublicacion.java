@@ -183,6 +183,23 @@ public class EditarPublicacion extends JPanel {
 
                 try {
 
+                  	String descripcion =
+                            txtDescripcion.getText();
+
+                    String condiciones =
+                            txtCondiciones.getText();
+
+                    if(descripcion.isBlank()
+                            || condiciones.isBlank()) {
+
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "Complete todos los campos");
+
+                        return;
+                    }
+                    
+
                     publicacion
                     .getObjeto()
                     .setDescripcion(
