@@ -53,4 +53,10 @@ public class Publicacion implements Serializable {
     public void setEstado(EstadosP estado) {
         this.estado = estado;
     }
+    
+    @Override
+    public String toString() {
+
+        return objeto.getDescripcion();
+    }
 }
