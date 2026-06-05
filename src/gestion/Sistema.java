@@ -8,4 +8,8 @@ public class Sistema {
             new GestionUsuarios();
 
     public static UsuarioNormal usuarioActual;
+
+    public static GestionPublicaciones
+gestionPublicaciones =
+        new GestionPublicaciones();
 }
