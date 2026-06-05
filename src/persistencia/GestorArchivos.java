@@ -20,8 +20,6 @@ import kernel.Usuario;
  *
  * Esta clase centraliza el acceso a los archivos del sistema.
  *
- * @author Wilfredo
- * @version 1.0
  */
 public class GestorArchivos {
 
