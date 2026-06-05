@@ -67,8 +67,11 @@ public class UsuarioNormal extends Usuario {
     }
 
     public ArrayList<Conversacion> getConversaciones() {
+        if (conversaciones == null) {
+            conversaciones = new ArrayList<>();
+        }
         return conversaciones;
-    } 
+    }  
 
     // Setters
     public void setUbicacion(TiempoGeolocalizado ubicacion) {
