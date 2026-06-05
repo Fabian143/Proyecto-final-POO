@@ -14,12 +14,16 @@ public class SubastaTiempoLimitado extends Publicacion {
             UsuarioNormal propietario,
             Objeto objeto,
             TiempoGeolocalizado fechaInicio,
-            TiempoGeolocalizado fechaFin) {
-
+            long tiempoCierreMillis) {  // Cambiar parámetro
+        
         super(propietario, objeto, EstadosP.EN_NEGOCIACION, fechaInicio);
-
-        this.tiempoSubastaFinal = fechaFin;
+        this.tiempoCierreMillis = tiempoCierreMillis;
         this.pujas = new ArrayList<>();
+    }
+    
+ // Getter
+    public long getTiempoCierreMillis() {
+        return tiempoCierreMillis;
     }
 
     public void agregarPuja(Puja puja) {
