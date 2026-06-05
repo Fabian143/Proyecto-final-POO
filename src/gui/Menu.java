@@ -32,37 +32,48 @@ public class Menu extends JPanel {
 
         add(lblBienvenido);
 
-        JButton btnPublicaciones =
+        JButton btnMisPublicaciones =
                 new JButton(
-                        "Publicaciones");
-        btnPublicaciones.addActionListener(new ActionListener() {
+                        "Mis publicaciones");
+        btnMisPublicaciones.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		
-                  ventana.setContentPane(
+        		ventana.setContentPane(
                         new MisPublicaciones(
                                 ventana,
                                 usuario));
 
                 ventana.revalidate();
                 ventana.repaint();
+
         	}
         });
 
-        btnPublicaciones.setBounds(
+        btnMisPublicaciones.setBounds(
                 100,
                 100,
                 250,
                 40);
 
-        add(btnPublicaciones);
+        add(btnMisPublicaciones);
 
         JButton btnOfertas =
                 new JButton(
                         "Ofertas");
+        btnOfertas.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ventana.setContentPane(
+                        new OfertasRecibidas(
+                                ventana));
+
+                ventana.revalidate();
+                ventana.repaint();
+        	}
+        });
 
         btnOfertas.setBounds(
                 100,
-                170,
+                248,
                 250,
                 40);
 
@@ -74,7 +85,7 @@ public class Menu extends JPanel {
 
         btnMensajes.setBounds(
                 100,
-                240,
+                321,
                 250,
                 40);
 
@@ -83,10 +94,22 @@ public class Menu extends JPanel {
         JButton btnPerfil =
                 new JButton(
                         "Mi Perfil");
+        btnPerfil.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ventana.setContentPane(
+
+                        new MiPerfil(
+                                ventana,
+                                usuario));
+
+                ventana.revalidate();
+                ventana.repaint();
+        	}
+        });
 
         btnPerfil.setBounds(
                 100,
-                310,
+                383,
                 250,
                 40);
 
@@ -103,6 +126,20 @@ public class Menu extends JPanel {
                 40);
 
         add(btnCerrarSesion);
+        
+        JButton btnExplorar = new JButton("Explorar publicaciones");
+        btnExplorar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ventana.setContentPane(
+                        new ExplorarPublicaciones(
+                                ventana));
+
+                ventana.revalidate();
+                ventana.repaint();
+        	}
+        });
+        btnExplorar.setBounds(100, 166, 250, 40);
+        add(btnExplorar);
 
         btnCerrarSesion.addActionListener(
                 new ActionListener() {
