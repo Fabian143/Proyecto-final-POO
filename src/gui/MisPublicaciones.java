@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import gestion.Sistema;
 import kernel.Publicacion;
 import kernel.UsuarioNormal;
+import kernel.TruequeDirecto;
 
 public class MisPublicaciones extends JPanel {
 
