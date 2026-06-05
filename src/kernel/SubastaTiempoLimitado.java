@@ -6,24 +6,29 @@ public class SubastaTiempoLimitado extends Publicacion {
 
     private static final long serialVersionUID = 1L;
 
-    private long tiempoCierreMillis; 
+    
     private ArrayList<Puja> pujas;
-    private TiempoGeolocalizado tiempoSubastaFinal;
+    private long tiempoCierreMillis; 
 
     public SubastaTiempoLimitado(
             UsuarioNormal propietario,
             Objeto objeto,
             TiempoGeolocalizado fechaInicio,
-            long tiempoCierreMillis) {  // Cambiar parámetro
+            long tiempoCierreMillis) {  // Ahora recibe long directamente
         
         super(propietario, objeto, EstadosP.EN_NEGOCIACION, fechaInicio);
         this.tiempoCierreMillis = tiempoCierreMillis;
         this.pujas = new ArrayList<>();
     }
     
- // Getter
+ /// GETTER para el tiempo de cierre
     public long getTiempoCierreMillis() {
         return tiempoCierreMillis;
+    }
+
+    // SETTER 
+    public void setTiempoCierreMillis(long tiempoCierreMillis) {
+        this.tiempoCierreMillis = tiempoCierreMillis;
     }
 
     public void agregarPuja(Puja puja) {
@@ -71,13 +76,4 @@ public class SubastaTiempoLimitado extends Publicacion {
         this.pujas = pujas;
     }
 
-    public TiempoGeolocalizado getTiempoSubastaFinal() {
-        return tiempoSubastaFinal;
-    }
-
-    public void setTiempoSubastaFinal(
-            TiempoGeolocalizado tiempoSubastaFinal) {
-
-        this.tiempoSubastaFinal = tiempoSubastaFinal;
-    }
 }
