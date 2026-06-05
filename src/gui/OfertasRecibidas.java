@@ -1,11 +1,12 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
-import gestion.Sistema;
-import kernel.Oferta;
-import kernel.OfertaNoValida;
-import kernel.Publicacion;
-import kernel.TruequeDirecto;
 
 public class OfertasRecibidas extends JPanel {
 
