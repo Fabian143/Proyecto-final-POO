@@ -82,6 +82,14 @@ public class Menu extends JPanel {
         JButton btnMensajes =
                 new JButton(
                         "Mensajes");
+        btnMensajes.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        		ventana.setContentPane(new MisMensajes(ventana));
+                ventana.revalidate();
+                ventana.repaint();
+        	}
+        });
 
         btnMensajes.setBounds(
                 375,
