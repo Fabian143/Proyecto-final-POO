@@ -1,7 +1,5 @@
 package persistencia;
 
-
-
 import java.io.*;
 import java.util.ArrayList;
 
@@ -9,16 +7,46 @@ import kernel.Publicacion;
 import kernel.Transaccion;
 import kernel.Usuario;
 
+/**
+ * Clase encargada de la persistencia de datos del sistema.
+ *
+ * Permite guardar y cargar información relacionada con:
+ * - Usuarios
+ * - Publicaciones
+ * - Transacciones
+ *
+ * Utiliza serialización de objetos para almacenar la información
+ * en archivos binarios (.dat).
+ *
+ * Esta clase centraliza el acceso a los archivos del sistema.
+ *
+ */
 public class GestorArchivos {
 
+    /**
+     * Nombre del archivo donde se almacenan los usuarios.
+     */
     private final String archivoUsuarios = "usuarios.dat";
+
+    /**
+     * Nombre del archivo donde se almacenan las publicaciones.
+     */
     private final String archivoPublicaciones = "publicaciones.dat";
+
+    /**
+     * Nombre del archivo donde se almacenan las transacciones.
+     */
     private final String archivoTransacciones = "transacciones.dat";
 
     // ==========================
     // USUARIOS
     // ==========================
 
+    /**
+     * Guarda la lista de usuarios en el archivo usuarios.dat.
+     *
+     * @param usuarios Lista de usuarios a guardar.
+     */
     public void guardarUsuarios(ArrayList<Usuario> usuarios) {
 
         try {
@@ -37,6 +65,11 @@ public class GestorArchivos {
         }
     }
 
+    /**
+     * Carga la lista de usuarios almacenada en el archivo.
+     *
+     * @return Lista de usuarios recuperada.
+     */
     @SuppressWarnings("unchecked")
     public ArrayList<Usuario> cargarUsuarios() {
 
@@ -65,6 +98,11 @@ public class GestorArchivos {
     // PUBLICACIONES
     // ==========================
 
+    /**
+     * Guarda la lista de publicaciones en el archivo publicaciones.dat.
+     *
+     * @param publicaciones Lista de publicaciones a guardar.
+     */
     public void guardarPublicaciones(
             ArrayList<Publicacion> publicaciones) {
 
@@ -84,6 +122,11 @@ public class GestorArchivos {
         }
     }
 
+    /**
+     * Recupera las publicaciones almacenadas en el archivo.
+     *
+     * @return Lista de publicaciones cargadas.
+     */
     @SuppressWarnings("unchecked")
     public ArrayList<Publicacion> cargarPublicaciones() {
 
@@ -115,6 +158,11 @@ public class GestorArchivos {
     // TRANSACCIONES
     // ==========================
 
+    /**
+     * Guarda la lista de transacciones en el archivo transacciones.dat.
+     *
+     * @param transacciones Lista de transacciones a guardar.
+     */
     public void guardarTransacciones(
             ArrayList<Transaccion> transacciones) {
 
@@ -136,6 +184,11 @@ public class GestorArchivos {
         }
     }
 
+    /**
+     * Recupera las transacciones almacenadas en el archivo.
+     *
+     * @return Lista de transacciones cargadas.
+     */
     @SuppressWarnings("unchecked")
     public ArrayList<Transaccion> cargarTransacciones() {
 
