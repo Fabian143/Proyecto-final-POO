@@ -13,8 +13,6 @@ import java.io.Serializable;
  * - Contraseña.
  * - Fecha y hora de registro.
  *
- * @author Wilfredo
- * @version 1.0
  */
 public class Usuario implements Serializable {
 
