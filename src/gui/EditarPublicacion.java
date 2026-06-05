@@ -182,8 +182,8 @@ public class EditarPublicacion extends JPanel {
                     ActionEvent e) {
 
                 try {
-
-                  	String descripcion =
+                	
+                	String descripcion =
                             txtDescripcion.getText();
 
                     String condiciones =
@@ -198,7 +198,6 @@ public class EditarPublicacion extends JPanel {
 
                         return;
                     }
-                    
 
                     publicacion
                     .getObjeto()
