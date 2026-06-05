@@ -1,4 +1,4 @@
-package gui;
+package ggui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -128,8 +128,8 @@ public class Menu extends JPanel {
                         "Cerrar Sesión");
 
         btnCerrarSesion.setBounds(
-                375,
-                250,
+                216,
+                300,
                 250,
                 40);
 
@@ -171,6 +171,18 @@ public class Menu extends JPanel {
         });
         btnCrearSubasta.setBounds(100, 200, 250, 40);
         add(btnCrearSubasta);
+        
+        JButton btnReportes = new JButton("Reportes");
+        btnReportes.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        		ventana.setContentPane(new ReportesEstadisticas(ventana));
+                ventana.revalidate();
+                ventana.repaint();
+        	}
+        });
+        btnReportes.setBounds(375, 250, 250, 40);
+        add(btnReportes);
 
         btnCerrarSesion.addActionListener(
                 new ActionListener() {
