@@ -6,6 +6,7 @@ public class SubastaTiempoLimitado extends Publicacion {
 
     private static final long serialVersionUID = 1L;
 
+    private long tiempoCierreMillis; 
     private ArrayList<Puja> pujas;
     private TiempoGeolocalizado tiempoSubastaFinal;
 
