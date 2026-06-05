@@ -108,4 +108,10 @@ public class Objeto implements Serializable {
         return String.format("Objeto{id=%d, descripción='%s', categoría=%s, condición='%s', fotos=%d}",
                 id, descripcion, categoria.getNombre(), condiciones, totalFotos);
     }
+
+	@Override
+public String toString() {
+
+    return descripcion;
+}
 }
