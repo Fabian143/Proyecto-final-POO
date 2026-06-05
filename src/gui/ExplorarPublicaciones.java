@@ -13,6 +13,8 @@ import javax.swing.table.DefaultTableModel;
 import gestion.Sistema;
 import kernel.Publicacion;
 import kernel.TruequeDirecto;
+import kernel.SubastaTiempoLimitado;
+
 
 public class ExplorarPublicaciones extends JPanel {
 
@@ -156,42 +158,44 @@ public class ExplorarPublicaciones extends JPanel {
         // HACER OFERTA
         //----------------------------------
 
-        btnOferta.addActionListener(
-        new ActionListener() {
-
-            public void actionPerformed(
-                    ActionEvent e) {
-
-                int fila =
-                        tablaPublicaciones
-                        .getSelectedRow();
-
+        btnOferta.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int fila = tablaPublicaciones.getSelectedRow();
+                
                 if(fila == -1) {
-
-                    JOptionPane.showMessageDialog(
-                            null,
-                            "Seleccione una publicación");
-
+                    JOptionPane.showMessageDialog(null, "Seleccione una publicación");
                     return;
                 }
 
-                Publicacion publicacion =
-                        obtenerPublicacionFila(
-                                fila);
-
+                Publicacion publicacion = obtenerPublicacionFila(fila);
+                
+                // VERIFICAR QUÉ TIPO DE PUBLICACIÓN ES
                 if(publicacion instanceof TruequeDirecto) {
-
-                    ventana.setContentPane(
-
-                            new CrearOferta(
-                                    ventana,
-                                    (TruequeDirecto) publicacion));
-
+                    ventana.setContentPane(new CrearOferta(ventana, (TruequeDirecto) publicacion));
                     ventana.revalidate();
                     ventana.repaint();
+                } 
+                else if(publicacion instanceof SubastaTiempoLimitado) {
+                    // Mostrar mensaje informativo
+                    int respuesta = JOptionPane.showConfirmDialog(
+                        null,
+                        "Este es un artículo en SUBASTA.\n" +
+                        "¿Deseas ir a la sección de Subastas para pujar por él?",
+                        "Redirigir a Subastas",
+                        JOptionPane.YES_NO_OPTION
+                    );
+                    
+                    if(respuesta == JOptionPane.YES_OPTION) {
+                        ventana.setContentPane(new ExplorarSubastas(ventana));
+                        ventana.revalidate();
+                        ventana.repaint();
+                    }
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Tipo de publicación no soportado");
                 }
             }
-            });
+        });
 
         //----------------------------------
         // VOLVER
