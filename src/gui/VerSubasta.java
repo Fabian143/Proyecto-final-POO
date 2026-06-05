@@ -1,4 +1,4 @@
-package ggui;
+package gui;
  
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -282,9 +282,7 @@ public class VerSubasta extends JPanel {
  
                     // Verificar que la subasta siga abierta
                     long ahora = System.currentTimeMillis();
-                    long cierre = (long) subasta
-                            .getTiempoSubastaFinal()
-                            .getLongitudAproximada();
+                    long cierre = subasta.getTiempoCierreMillis();
  
                     if (cierre > 0 && ahora >= cierre) {
  
