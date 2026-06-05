@@ -13,6 +13,7 @@ public class UsuarioNormal extends Usuario {
     protected ArrayList<Reseña> reseñasComoVendedor;
     protected ArrayList<Reseña> reseñasComoCliente;
     protected ArrayList<Transaccion> transacciones;
+    protected ArrayList<Conversacion> conversaciones;
 
     public UsuarioNormal(String nombre, String contraseña, String correo) {
         super(nombre, contraseña, correo);
@@ -21,6 +22,7 @@ public class UsuarioNormal extends Usuario {
         this.reseñasComoVendedor = new ArrayList<>();
         this.reseñasComoCliente = new ArrayList<>();
         this.transacciones = new ArrayList<>();
+        this.conversaciones = new ArrayList<>();
     }
 
     public UsuarioNormal(String nombre, String contraseña, String correo, String ciudadUbicacion) {
@@ -30,6 +32,7 @@ public class UsuarioNormal extends Usuario {
         this.reseñasComoVendedor = new ArrayList<>();
         this.reseñasComoCliente = new ArrayList<>();
         this.transacciones = new ArrayList<>();
+        this.conversaciones = new ArrayList<>();
     }
 
     public UsuarioNormal(String nombre, String contraseña, String correo, String ciudadUbicacion, double latitud, double longitud) {
@@ -39,6 +42,7 @@ public class UsuarioNormal extends Usuario {
         this.reseñasComoVendedor = new ArrayList<>();
         this.reseñasComoCliente = new ArrayList<>();
         this.transacciones = new ArrayList<>();
+        this.conversaciones = new ArrayList<>();
     }
 
     // Getters
@@ -62,6 +66,10 @@ public class UsuarioNormal extends Usuario {
         return transacciones;
     }
 
+    public ArrayList<Conversacion> getConversaciones() {
+        return conversaciones;
+    } 
+
     // Setters
     public void setUbicacion(TiempoGeolocalizado ubicacion) {
         this.ubicacion = ubicacion;
@@ -73,6 +81,9 @@ public class UsuarioNormal extends Usuario {
 
     public void setUbicacion(String ciudadUbicacion, double latitud, double longitud) {
         this.ubicacion = new TiempoGeolocalizado(ciudadUbicacion, latitud, longitud);
+    }
+    public void setConversaciones(ArrayList<Conversacion> conversaciones) {
+        this.conversaciones = conversaciones;
     }
 
     // Método: Obtener promedio de reputación como vendedor
@@ -121,5 +132,25 @@ public class UsuarioNormal extends Usuario {
     // Método: Agregar publicación
     public void agregarPublicacion(Publicacion publicacion) {
         publicaciones.add(publicacion);
+    }
+    
+    
+ // Método para obtener o crear conversación con otro usuario
+    public Conversacion obtenerOConversacionCon(UsuarioNormal otroUsuario) {
+        for (Conversacion c : conversaciones) {
+            if ((c.getRemitente() == this && c.getDestinatario() == otroUsuario) ||
+                (c.getRemitente() == otroUsuario && c.getDestinatario() == this)) {
+                return c;
+            }
+        }
+        
+        // No existe, crear nueva
+        Conversacion nueva = new Conversacion(this, otroUsuario);
+        conversaciones.add(nueva);
+        
+        // También agregar al otro usuario (simetría)
+        otroUsuario.getConversaciones().add(nueva);
+        
+        return nueva;
     }
 }
