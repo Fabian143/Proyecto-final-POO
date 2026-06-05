@@ -73,7 +73,7 @@ public class Menu extends JPanel {
 
         btnOfertas.setBounds(
                 100,
-                248,
+                150,
                 250,
                 40);
 
@@ -84,8 +84,8 @@ public class Menu extends JPanel {
                         "Mensajes");
 
         btnMensajes.setBounds(
-                100,
-                321,
+                375,
+                200,
                 250,
                 40);
 
@@ -109,7 +109,7 @@ public class Menu extends JPanel {
 
         btnPerfil.setBounds(
                 100,
-                383,
+                250,
                 250,
                 40);
 
@@ -120,8 +120,8 @@ public class Menu extends JPanel {
                         "Cerrar Sesión");
 
         btnCerrarSesion.setBounds(
-                100,
-                450,
+                375,
+                250,
                 250,
                 40);
 
@@ -138,8 +138,31 @@ public class Menu extends JPanel {
                 ventana.repaint();
         	}
         });
-        btnExplorar.setBounds(100, 166, 250, 40);
+        btnExplorar.setBounds(375, 100, 250, 40);
         add(btnExplorar);
+        
+        JButton btnSubastas = new JButton("Subastas");
+        btnSubastas.setBounds(375, 150, 250, 40);
+        btnSubastas.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ventana.setContentPane(new ExplorarSubastas(ventana));
+                ventana.revalidate();
+                ventana.repaint();
+            }
+        });
+        add(btnSubastas);
+        
+        JButton btnCrearSubasta = new JButton("Crear Subasta");
+        btnCrearSubasta.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        		ventana.setContentPane(new CrearSubasta(ventana, usuario));
+                ventana.revalidate();
+                ventana.repaint();
+        	}
+        });
+        btnCrearSubasta.setBounds(100, 200, 250, 40);
+        add(btnCrearSubasta);
 
         btnCerrarSesion.addActionListener(
                 new ActionListener() {
