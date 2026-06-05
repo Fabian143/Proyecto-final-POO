@@ -15,7 +15,6 @@ import kernel.Publicacion;
 import kernel.TruequeDirecto;
 import kernel.SubastaTiempoLimitado;
 
-
 public class ExplorarPublicaciones extends JPanel {
 
     private static final long serialVersionUID = 1L;
@@ -223,48 +222,34 @@ public class ExplorarPublicaciones extends JPanel {
     //----------------------------------
 
     private void cargarTabla() {
-
-        DefaultTableModel modelo =
-                new DefaultTableModel();
-
+        DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("ID");
         modelo.addColumn("Objeto");
         modelo.addColumn("Categoría");
         modelo.addColumn("Propietario");
         modelo.addColumn("Estado");
 
-        for(Publicacion p :
-
-                Sistema
-                .gestionPublicaciones
-                .obtenerPublicacionesDisponibles()) {
-
-            if(p.getPropietario()
-                    == Sistema.usuarioActual) {
-
-                continue;
+        for(Publicacion p : Sistema.gestionPublicaciones.obtenerPublicacionesDisponibles()) {
+            
+            // FILTRAR: Solo mostrar TruequeDirecto (no subastas)
+            if(!(p instanceof TruequeDirecto)) {
+                continue;  // Saltar subastas y otros tipos
+            }
+            
+            if(p.getPropietario() == Sistema.usuarioActual) {
+                continue;  // Saltar mis propias publicaciones
             }
 
-            modelo.addRow(
-                    new Object[] {
-
-                            p.getId(),
-
-                            p.getObjeto()
-                            .getDescripcion(),
-
-                            p.getObjeto()
-                            .getCategoria(),
-
-                            p.getPropietario()
-                            .getNombre(),
-
-                            p.getEstado()
-                    });
+            modelo.addRow(new Object[]{
+                p.getId(),
+                p.getObjeto().getDescripcion(),
+                p.getObjeto().getCategoria(),
+                p.getPropietario().getNombre(),
+                p.getEstado()
+            });
         }
 
-        tablaPublicaciones
-                .setModel(modelo);
+        tablaPublicaciones.setModel(modelo);
     }
 
     //----------------------------------
