@@ -108,9 +108,7 @@ public class VerSubasta extends JPanel {
         long ahora = System.currentTimeMillis();
  
         // Se guardo el tiempo de cierre en la longitud del TiempoGeolocalizado
-        long cierre = (long) subasta
-                .getTiempoSubastaFinal()
-                .getLongitudAproximada();
+        long cierre = subasta.getTiempoCierreMillis();
  
         String tiempoRestante;
  
