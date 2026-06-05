@@ -15,8 +15,6 @@ import java.io.Serializable;
  * Implementa Serializable para permitir almacenar las ofertas
  * en archivos y recuperarlas posteriormente.
  *
- * @author Wilfredo
- * @version 1.0
  */
 public class Oferta implements Serializable {
 
