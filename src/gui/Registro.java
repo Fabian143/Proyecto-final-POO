@@ -161,6 +161,7 @@ public class Registro extends JPanel {
                             ventana.repaint();
 
                         } catch(Exception ex) {
+                        	
 
                             JOptionPane.showMessageDialog(
                                     null,
