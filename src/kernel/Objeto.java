@@ -109,9 +109,4 @@ public class Objeto implements Serializable {
                 id, descripcion, categoria.getNombre(), condiciones, totalFotos);
     }
 
-	@Override
-public String toString() {
-
-    return descripcion;
-}
 }
